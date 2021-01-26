@@ -1,17 +1,33 @@
 <html>
 <head>
  <title>linkpad 0.1</title>
+  <style>
+    .note {
+      float: left;
+      background-color: #DDD;
+    }
+  </style>
  <script type="text/javascript">
   // Test
    window.addEventListener('paste', (event) => {
     const text = navigator.clipboard.readText();
     alert("You pasted: " + text);
+     addNote(text);
   });
   
+   function addNote(text) {
+    var div = document.createElement('div');
+    div.id = '123';
+    div.innerHTML = '' + text;
+    div.className = 'note';
+    document.getElementById("noteList").appendChild(div); 
+   }
  </script>
 </head>
 
 <body>
-
+  <div id="noteList">&nbsp;
+  </div>
+  <a href="#">Add note</a>
 </body>
 </html>
