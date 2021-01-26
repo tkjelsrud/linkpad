@@ -16,10 +16,10 @@
   
    function addNote(text) {
     var div = document.createElement('div');
-    //div.id = '123';
-    div.innerHTML = '' + text;
     div.className = 'note';
-    document.getElementById("noteList").appendChild("<div class=\"note\"><div class=\"title\">" + text + "</div><div class\"tags\" contenteditable=\"true\">#test #test</div></div>"); 
+    div.innerHTML = "<div class=\"title\">" + text + "</div><div class\"tags\" contenteditable=\"true\">#test #test</div>";
+     
+    document.getElementById("noteList").appendChild(div); 
    }
  </script>
 </head>
