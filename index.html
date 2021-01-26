@@ -10,16 +10,15 @@
  <script type="text/javascript">
    // Test
    window.addEventListener('paste', (event) => {
-    let text = (event.clipboardData || window.clipboardData).getData('text');
-    addNote(text);
+     let text = (event.clipboardData || window.clipboardData).getData('text');
+     addNote(text);
    });
   
    function addNote(text) {
-    var div = document.createElement('div');
-    div.className = 'note';
-    div.innerHTML = "<div class=\"title\">" + text + "</div><div class\"tags\" contenteditable=\"true\">#test #test</div>";
-     
-    document.getElementById("noteList").appendChild(div); 
+     var div = document.createElement('div');
+     div.className = 'note';
+     div.innerHTML = "<div class=\"title\">" + text + "</div><div class\"tags\" contenteditable=\"true\">#test #test</div>";
+     document.getElementById("noteList").appendChild(div); 
    }
  </script>
 </head>
