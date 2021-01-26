@@ -3,8 +3,10 @@
  <title>linkpad 0.1</title>
  <script type="text/javascript">
   // Test
-   elem.addEventListener('paste', (event) => {
-     alert("you pased you!");
+   window.addEventListener('paste', (event) => {
+  const text = navigator.clipboard.readText();
+  alert("You pasted: " + text);
+}, 2000);
   //event.preventDefault();
 });
   
