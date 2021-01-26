@@ -8,16 +8,15 @@
     }
   </style>
  <script type="text/javascript">
-  // Test
+   // Test
    window.addEventListener('paste', (event) => {
-    const text = navigator.clipboard.readText();
-    alert("You pasted: " + text);
-     addNote(text);
-  });
+    let text = (event.clipboardData || window.clipboardData).getData('text');
+    addNote(text);
+   });
   
    function addNote(text) {
     var div = document.createElement('div');
-    div.id = '123';
+    //div.id = '123';
     div.innerHTML = '' + text;
     div.className = 'note';
     document.getElementById("noteList").appendChild(div); 
