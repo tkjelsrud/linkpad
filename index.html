@@ -34,12 +34,26 @@
       div.innerHTML = "<div class=\"title\">" + text + "</div><div class\"tags\" contenteditable=\"true\">#test #test</div>";
       document.getElementById("noteList").appendChild(div); 
     }
+    // event listener for keyup
+    function checkTabPress(e) {
+        "use strict";
+        // pick passed event or global event object if passed one is empty
+        e = e || event;
+        var activeElement;
+        if (e.keyCode == 9) {
+            // Here read the active selected link.
+            addNote('new text tab');
+        }
+    }
+
+	var body = document.querySelector('body');
+	body.addEventListener('keyup', checkTabPress);
   </script>
 </head>
 
 <body>
   <div id="noteList">&nbsp;
   </div>
-  <a href="#">Add note</a>
+  <a href="javascript:void(addNote('new note'))">Add note</a>
 </body>
 </html>
