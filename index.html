@@ -30,9 +30,14 @@
   
     function addNote(text) {
       let nid = incrNextId();
+      let jsn = {'id': nid, 'text': text, 'tags': "", 'loc': {}};
+      noteToDom(jsn);
+    }
+    
+    function noteToDom(jsn) {
       let div = document.createElement('div');
       div.className = 'note';
-      div.innerHTML = "<div id=\"" + nid + "\" class=\"title\" label=\"" + nid + "\">" + text + "</div><div class\"tags\" contenteditable=\"true\">#test #test</div>";
+      div.innerHTML = "<div id=\"" + jsn.id + "\" class=\"title\" label=\"" + jsn.id + "\">" + jsn.text + "</div><div class\"tags\" contenteditable=\"true\">" + jsn.tags + "</div>";
       document.getElementById("noteList").appendChild(div); 
     }
     // event listener for keyup
@@ -58,8 +63,25 @@
       return nid;
     }
     
-    function saveNote(id) {
+    function saveNote(jsn) {
+    	localStorage.setItem(jsn.id, JSON.stringify(jsn));
+    }
+    
+    function loadAllNotes() {
+      let lid = parseInt(localStorage.getItem('lastId'));
+      if(!lid) lid = 0;
       
+      for(i = 0; i < lid; i++) {
+        loadNote(i);
+      }
+    }
+    
+    function loadNote(id) {
+      let n = localStorage.getItem(id);
+      if(n) {
+        n = JSON.parse(n);
+        noteToDom(n);
+      }
     }
 
 	window.addEventListener('keyup', checkTabPress);
@@ -67,6 +89,7 @@
 </head>
 
 <body>
+  <div id="tagList">&nbsp;</div>
   <div id="noteList">&nbsp;
   </div>
   <a href="javascript:void(addNote('new note'))">Add note</a>
