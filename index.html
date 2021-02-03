@@ -23,10 +23,7 @@
     // Test
     // ...
     // ...
-    window.addEventListener('paste', (event) => {
-      let text = (event.clipboardData || window.clipboardData).getData('text');
-      addNote(text);
-    });
+
   
     function addNote(text) {
       let nid = incrNextId();
@@ -37,7 +34,7 @@
     function noteToDom(jsn) {
       let div = document.createElement('div');
       div.className = 'note';
-      div.innerHTML = "<div id=\"" + jsn.id + "\" class=\"title\" label=\"" + jsn.id + "\">" + jsn.text + "</div><div class\"tags\" contenteditable=\"true\">" + jsn.tags + "</div>";
+      div.innerHTML = "<div id=\"" + jsn.id + "\" class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\">" + jsn.text + "</div><div class\"tags\" contenteditable=\"true\">" + jsn.tags + "</div>";
       document.getElementById("noteList").appendChild(div); 
     }
     // event listener for keyup
@@ -85,6 +82,16 @@
     }
 
 	window.addEventListener('keyup', checkTabPress);
+    window.addEventListener('paste', (event) => {
+      let text = (event.clipboardData || window.clipboardData).getData('text');
+      addNote(text);
+    });
+    const selectElement = document.querySelector('.note');
+    selectElement.addEventListener('change', (event) => {
+     // const result = document.querySelector('.result');
+      //result.textContent = `You like ${event.target.value}`;
+      console.log("shit be changed yall");
+    });
   </script>
 </head>
 
