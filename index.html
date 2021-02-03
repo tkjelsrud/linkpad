@@ -35,6 +35,10 @@
       let div = document.createElement('div');
       div.className = 'note';
       div.innerHTML = "<div id=\"" + jsn.id + "\" class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\">" + jsn.text + "</div><div class\"tags\" contenteditable=\"true\">" + jsn.tags + "</div>";
+      div.addEventListener('blur', (event) => {
+      	console.log("shit be changed yall");
+        console.log(event);
+    	});
       document.getElementById("noteList").appendChild(div); 
     }
     // event listener for keyup
