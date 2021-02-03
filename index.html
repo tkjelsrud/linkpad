@@ -45,6 +45,21 @@
             addNote('new text tab');
         }
     }
+    
+    function incrNextId() {
+      let nid = localStorage.getItem('lastId');
+      if(!nid)
+        nid = 0;
+      
+      nid = parseInt(nid) + 1;
+      localStorage.setItem('lastId', "" + nid);
+      
+      return nid;
+    }
+    
+    function saveNote(id) {
+      
+    }
 
 	var body = document.querySelector('body');
 	body.addEventListener('keyup', checkTabPress);
