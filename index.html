@@ -29,9 +29,10 @@
     });
   
     function addNote(text) {
-      var div = document.createElement('div');
+      let nid = incrNextId();
+      let div = document.createElement('div');
       div.className = 'note';
-      div.innerHTML = "<div class=\"title\">" + text + "</div><div class\"tags\" contenteditable=\"true\">#test #test</div>";
+      div.innerHTML = "<div id=\"" + nid + "\" class=\"title\">" + text + "</div><div class\"tags\" contenteditable=\"true\">#test #test</div>";
       document.getElementById("noteList").appendChild(div); 
     }
     // event listener for keyup
