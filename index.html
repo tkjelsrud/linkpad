@@ -58,7 +58,11 @@
     }
     
     function saveDomNote(id) {
-    	let d = document.getElementById(id);
+      let jsn = {'id': id};
+   	  let d = document.getElementById(id);
+      jsn.text = d.children[0].innerText;
+      jsn.tags = d.children[1].innerText;
+      saveNote(jsn);
     }
     
     function saveNote(jsn) {
