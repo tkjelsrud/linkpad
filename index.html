@@ -24,15 +24,19 @@
       min-height: 40px;
     }
     .note .title {
-      font-weight: bold;
       width: 100%;
     }
     .note .tags {
+      color: #999;
       width: 100%;
     }
-    .note .tags::before {
-      content: '#';
-	}
+    .note .tags div {
+      background-color: #ffcc5c;
+    }
+    .note .tags div:before {
+   	  content: "#";
+    }
+
     body {
       background-color: #d5f4e6; 
     }
@@ -50,8 +54,16 @@
       let div = document.createElement('div');
       div.id = jsn.id;
       div.className = 'note';
-      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + jsn.text + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + jsn.tags + "</div>";
+      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + jsn.text + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div>";
       document.getElementById("noteList").appendChild(div); 
+    }
+    
+    function tagListDom(list) {
+      let html = "";
+      for(int i = 0; i < list.length; i++) {
+      	html += "<div>" + list[i] + "</div>";
+      }
+      return html;
     }
     
     function checkTabPress(e) {
