@@ -33,9 +33,9 @@
     .note .tags div {
       background-color: #ffcc5c;
     }
-    .note .tags div:before {
+    /*.note .tags div:before {
    	  content: "#";
-    }
+    }*/
 
     body {
       background-color: #d5f4e6; 
@@ -43,6 +43,7 @@
   </style>
   
   <script type="text/javascript">
+    var glob = {'tags': []};
   
     function addNote(text) {
       let nid = incrNextId();
@@ -114,6 +115,19 @@
       if(n) {
         n = JSON.parse(n);
         noteToDom(n);
+        popTagList(n.tags);
+      }
+    }
+    
+    function popTagList(nt) {
+      let d = document.getElementById("tagList");
+      let tags = nt.split(" ");
+      for(let i = 0; i < tags.length; i++) {
+      	let t = tags[i].trim();
+        if(t != "" && !glob.tags.includes(t)) {
+          d.innerHTML += " " + t;
+          glob.tags.push(t);
+        }
       }
     }
 
