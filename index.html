@@ -60,6 +60,7 @@
     }
     
     function tagListDom(list) {
+      let list = list.split(" ");
       let html = "";
       for(let i = 0; i < list.length; i++) {
       	html += "<div>" + list[i] + "</div>";
