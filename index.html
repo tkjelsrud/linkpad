@@ -60,10 +60,11 @@
     }
     
     function tagListDom(list) {
-      let list = list.split(" ");
+      let tags = list.split(" ");
       let html = "";
-      for(let i = 0; i < list.length; i++) {
-      	html += "<div>" + list[i] + "</div>";
+      for(let i = 0; i < tags.length; i++) {
+        if(tags[i].trim() != "")
+      		html += "<div>" + tags[i] + "</div>";
       }
       return html;
     }
