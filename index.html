@@ -52,7 +52,7 @@
   </style>
   
   <script type="text/javascript">
-    var glob = {'tags': []};
+    var glob = {'tags': [], 'focusTag': null};
   
     function addNote(text) {
       let nid = incrNextId();
@@ -105,6 +105,8 @@
    	  let d = document.getElementById(id);
       jsn.text = d.children[0].innerText;
       jsn.tags = d.children[1].innerText;
+      if(glob.focusTag)
+      	jsn.tags += " " + glob.focusTag;
       saveNote(jsn);
     }
     
