@@ -36,7 +36,7 @@
       background-color: #ffcc5c;
     }
     
-    .tags div:before {
+    .tag div:before {
       content: "#";
       color: red;
     }
@@ -68,7 +68,7 @@
       let html = "";
       for(let i = 0; i < tags.length; i++) {
         if(tags[i].trim() != "")
-      		html += "<div>" + tags[i] + "</div>";
+      		html += "<div class=\"tag\">" + tags[i] + "</div>";
       }
       return html;
     }
