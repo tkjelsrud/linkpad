@@ -37,6 +37,7 @@
     }
     
     .tag:before {
+      float: left;
       content: "#";
       color: red;
     }
@@ -133,7 +134,7 @@
       for(let i = 0; i < tags.length; i++) {
       	let t = tags[i].trim();
         if(t != "" && !glob.tags.includes(t)) {
-          d.innerHTML += " <a href=\"javascript:filterTag('" + t + "')\">" + t + "</a>";
+          d.innerHTML += " <div class=\"tag\" onClick=\"javascript:filterTag('" + t + "')\">" + t + "</div>";
           glob.tags.push(t);
         }
       }
