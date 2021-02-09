@@ -110,6 +110,8 @@
       for(i = 0; i < lid; i++) {
         loadNote(i);
       }
+      
+      filterTag(null);
     }
     
     function loadNote(id) {
@@ -139,11 +141,11 @@
         let n = nd.children[i];
         let tl = n.children[1].innerText;
         
-        if(tl.includes(t) || t == null) {
-          n.style.display = "block";
-        }
-        else if(tl.includes("trash")) {
+        if(tl.includes("trash") && t != "trash") {
           n.style.display = "none";
+        }
+        else if(tl.includes(t) || t == null) {
+          n.style.display = "block";
         }
         else {
           n.style.display = "none";
