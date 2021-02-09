@@ -127,8 +127,22 @@
       for(let i = 0; i < tags.length; i++) {
       	let t = tags[i].trim();
         if(t != "" && !glob.tags.includes(t)) {
-          d.innerHTML += " <a href=\"javascript:filterTag('" + t + "'\">" + t + "</a>";
+          d.innerHTML += " <a href=\"javascript:filterTag('" + t + "')\">" + t + "</a>";
           glob.tags.push(t);
+        }
+      }
+    }
+    
+    function filterTag(t) {
+   	  let nd = document.getElementById("noteList");
+      for(let i = 0; i < nd.children.length; i++) {
+        let n = nd.children[i];
+        let tl = n.children[1].innerText;
+        if(tl.includes(t)) {
+          n.style.display = "block";
+        }
+        else {
+          n.style.display = "none";
         }
       }
     }
