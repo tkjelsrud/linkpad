@@ -138,8 +138,12 @@
       for(let i = 0; i < nd.children.length; i++) {
         let n = nd.children[i];
         let tl = n.children[1].innerText;
+        
         if(tl.includes(t) || t == null) {
           n.style.display = "block";
+        }
+        else if(tl.includes("trash")) {
+          n.style.display = "none";
         }
         else {
           n.style.display = "none";
