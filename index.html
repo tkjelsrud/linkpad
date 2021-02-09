@@ -121,7 +121,7 @@
    	  let d = document.getElementById(id);
       jsn.text = d.children[0].innerText;
       jsn.tags = d.children[1].innerText;
-      jsn.updated = (new Date()).toLocaleDateString('');
+      jsn.updated = (new Date()).toLocaleTimeString('no-nb') + " " + (new Date()).toLocaleDateString('no-nb');
       if(glob.focusTag || !jsn.tags.includes(glob.focusTag))
       	jsn.tags += " " + glob.focusTag;
       saveNote(jsn);
