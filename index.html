@@ -38,6 +38,7 @@
       border-radius: 4px;
       background-color: #d5f4e6;
       color: #999;
+      margin: 1px;
       margin-right: 4px;
     }
     
@@ -105,7 +106,7 @@
    	  let d = document.getElementById(id);
       jsn.text = d.children[0].innerText;
       jsn.tags = d.children[1].innerText;
-      if(glob.focusTag)
+      if(glob.focusTag || !jsn.tags.includes(glob.focusTag))
       	jsn.tags += " " + glob.focusTag;
       saveNote(jsn);
     }
