@@ -30,6 +30,9 @@
       border: 1px solid #DDD;
       min-height: 40px;
     }
+    .high {
+      background-color: red;
+    }
     .note .title {
       padding: 2px;
       width: 100%;
@@ -126,6 +129,7 @@
       if(glob.focusTag || !jsn.tags.includes(glob.focusTag))
       	jsn.tags += " " + glob.focusTag;
       saveNote(jsn);
+      highlightNote(id);
     }
     
     function saveNote(jsn) {
@@ -180,6 +184,13 @@
           n.style.display = "none";
         }
       }
+    }
+    
+    function highlightNote(id) {
+      // Show signal
+      let d = document.getElementById(id);
+      d.classList.add("high");
+      setTimeout(function(){ document.getElementById(id).classList.remove("high"); }, 3000);
     }
 
   </script>
