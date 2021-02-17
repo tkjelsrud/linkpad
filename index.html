@@ -140,7 +140,7 @@
       let lid = parseInt(localStorage.getItem('lastId'));
       if(!lid) lid = 0;
       
-      for(i = 0; i < lid; i++) {
+      for(i = 0; i <= lid; i++) {
         loadNote(i);
       }
       
