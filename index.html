@@ -132,7 +132,7 @@
       jsn.text = d.children[0].innerText;
       jsn.tags = d.children[1].innerText;
       jsn.updated = (new Date()).toLocaleDateString('nb-NO');
-      if(glob.focusTag || !jsn.tags.includes(glob.focusTag))
+      if(glob.focusTag && !jsn.tags.includes(glob.focusTag))
       	jsn.tags += " " + glob.focusTag;
       saveNote(jsn);
       highlightNote(id);
