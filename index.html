@@ -33,6 +33,9 @@
     .high {
       background-color: red;
     }
+    .expand {
+      height: auto;
+    }
     .note .title {
       padding: 2px;
       width: 100%;
@@ -67,7 +70,7 @@
     }
 
     body {
-      background-color: #d5f4e6; 
+      background-color: #99bbad; 
       font: Verdana;
       font-size: 12px;
     }
@@ -142,7 +145,7 @@
       let lid = parseInt(localStorage.getItem('lastId'));
       if(!lid) lid = 0;
       
-      for(i = 0; i <= lid; i++) {
+      for(i = lid; i > 0; i--) {
         loadNote(i);
       }
       
