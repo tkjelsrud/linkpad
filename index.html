@@ -144,7 +144,12 @@
     }
     
     function saveNote(jsn) {
+      try {
     	localStorage.setItem(jsn.id, JSON.stringify(jsn));
+      }
+      catch(e) {
+        alert("Failed to save: " + e);
+      }
     }
     
     function loadAllNotes() {
