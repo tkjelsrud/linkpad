@@ -35,6 +35,10 @@
     .high {
       background-color: red;
     }
+    .done {
+      text-decoration: line-through;
+      background-color: #CCC;
+    }
     .expand {
       height: auto;
     }
@@ -83,14 +87,14 @@
   
     function addNote(text) {
       let nid = incrNextId();
-      let jsn = {'id': nid, 'text': text, 'tags': "", 'loc': {}, 'created': null, 'updated': null};
+      let jsn = {'id': nid, 'text': text, 'tags': "", 'loc': {}, 'created': null, 'updated': null, 'styles': ""};
       noteToDom(jsn);
     }
     
     function noteToDom(jsn) {
       let div = document.createElement('div');
       div.id = jsn.id;
-      div.className = 'note';
+      div.className = 'note' + (jsn.styles? " " + jsn.styles: "");
       div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + linkify(jsn.text.replace(new Array("\n", "\r", "&nbsp;"), "<br\>")) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class=\"date\">" + jsn.updated + "</div>";
       document.getElementById("noteList").appendChild(div); 
     }
