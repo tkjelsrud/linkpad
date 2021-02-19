@@ -107,9 +107,9 @@
     }
     
     function iconify(str) {
-      str = str.replace("TODO:", "<i class=\"material-icons md-18\">circle_notifications</i> TODO: ");
-      str = str.replace("DONE:", "<i class=\"material-icons md-18\">done</i> DONE: ");
-      str = str.replace(" * ", "<br/><i class=\"material-icons md-18\" style=\"font-size: 9px\">stop_circle</i><span style=\"display:none\"> * </span>");
+      //str = str.replace("TODO:", "<i class=\"material-icons md-18\">circle_notifications</i> TODO: ");
+      //str = str.replace("DONE:", "<i class=\"material-icons md-18\">done</i> DONE: ");
+      //str = str.replace(" * ", "<br/><i class=\"material-icons md-18\" style=\"font-size: 9px\">stop_circle</i><span style=\"display:none\"> * </span>");
       return str;
     }
     
@@ -148,7 +148,7 @@
     function saveDomNote(id) {
       let jsn = {'id': id};
    	  let d = document.getElementById(id);
-      jsn.text = d.children[0].innerText.replace(/circle_*/i, '');;
+      jsn.text = d.children[0].innerText; //.replace(/circle_*/i, '');;
       jsn.tags = d.children[1].innerText;
       jsn.updated = (new Date()).toLocaleDateString('nb-NO');
       if(glob.focusTag && !jsn.tags.includes(glob.focusTag))
