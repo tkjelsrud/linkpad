@@ -81,6 +81,7 @@
       font-size: 12px;
     }
   </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="lib/util.js"></script>
   <script type="text/javascript">
     var glob = {'tags': [], 'focusTag': null};
@@ -95,8 +96,13 @@
       let div = document.createElement('div');
       div.id = jsn.id;
       div.className = 'note' + (jsn.styles? " " + jsn.styles: "");
-      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + linkify(jsn.text.replace(new Array("\n", "\r", "&nbsp;"), "<br\>")) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class=\"date\">" + jsn.updated + "</div>";
+      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + linkify(iconify(jsn.text.replace(new Array("\n", "\r", "&nbsp;"), "<br\>"))) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class=\"date\">" + jsn.updated + "</div>";
       document.getElementById("noteList").appendChild(div); 
+    }
+    
+    function iconify(str) {
+    	str = str.replace("TODO:", "<i class=\"material-icons\">traffic</i> TODO: ");
+      return str;
     }
     
     function tagListDom(list) {
