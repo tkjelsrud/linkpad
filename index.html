@@ -158,7 +158,7 @@
       let jsn = {'id': id};
    	  let d = document.getElementById(id);
       jsn.text = d.children[0].innerText; //.replace(/circle_*/i, '');;
-      jsn.tags = d.children[1].innerText;
+      jsn.tags = d.children[1].innerText.replace("&nbsp", " ");
       jsn.updated = (new Date()).toLocaleDateString('nb-NO');
       if(glob.focusTag && !jsn.tags.includes(glob.focusTag))
       	jsn.tags += " " + glob.focusTag;
