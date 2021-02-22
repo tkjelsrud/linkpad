@@ -257,10 +257,13 @@
 
 <body>
   <div id="tagList"><div class="tag" onClick="filterTag(null);" href="#">ALL</div>&nbsp;</div>
+  <div id="options">
+    <a href="javascript:void(addNote('new note'))">Add note</a> | 
+  	<a href="javascript:void(emptyTrash())">Delete trash</a>
+  </div>
   <div id="noteList">&nbsp;
   </div>
-  <a href="javascript:void(addNote('new note'))">Add note</a> | 
-  <a href="javascript:void(emptyTrash())">Delete trash</a>
+  
   
   <script type="text/javascript">
     loadAllNotes();
