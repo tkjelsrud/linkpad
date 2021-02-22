@@ -90,11 +90,12 @@
   
   <script type="text/javascript" src="lib/util.js"></script>
   <script type="text/javascript">
-    var glob = {'tags': [], 'focusTag': null};
+    var glob = {'notes': {}, 'tags': [], 'focusTag': null};
   
     function addNote(text) {
       let nid = incrNextId();
       let jsn = {'id': nid, 'text': text, 'tags': "", 'loc': {}, 'created': null, 'updated': null, 'styles': ""};
+      glob.notes[nid] = jsn;
       noteToDom(jsn);
     }
     
@@ -161,6 +162,7 @@
     function saveNote(jsn) {
       try {
     	localStorage.setItem(jsn.id, JSON.stringify(jsn));
+        glob.notes[jsn.id] = jsn;
       }
       catch(e) {
         alert("Failed to save: " + e);
@@ -222,6 +224,15 @@
       let d = document.getElementById(id);
       d.classList.add("high");
       setTimeout(function(){ document.getElementById(id).classList.remove("high"); }, 3000);
+    }
+    
+    function emptyTrash() {
+      for(let id in glob.notes) {
+        n = glob.notes[id];
+        if(n.tags.includes("trash"))
+          console.log(n);
+        
+      }
     }
 
   </script>
