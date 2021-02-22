@@ -221,7 +221,12 @@
     }
     
     function deleteNote(id) {
-    	//glob.notes[id]
+      let el = document.getElementById(id);
+      if(el)
+      	el.remove();
+      
+      delete glob.notes[id]
+      localStorage.removeItem(id);
     }
     
     function highlightNote(id) {
@@ -232,11 +237,18 @@
     }
     
     function emptyTrash() {
+      let delList = new Array();
+      
       for(let id in glob.notes) {
         n = glob.notes[id];
         if(n.tags.includes("trash"))
-          console.log(n);
-        
+          delList.push(id);
+      }
+      
+	  if (confirm("Delete " + delList.length + " notes") == true) {
+        for(let i = 0; i < delList.length; i ++) {
+          deleteNote(delList[i]);
+        }
       }
     }
 
