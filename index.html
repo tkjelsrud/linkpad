@@ -112,7 +112,7 @@
       let div = document.createElement('div');
       div.id = jsn.id;
       div.className = 'note' + (jsn.styles? " " + jsn.styles: "");
-      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + linkify(iconify(jsn.text)) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class=\"date\" title=\"id: " + jsn.id + "\">" + jsn.updated + "</div>";
+      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + linkify(iconify(jsn.text)) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div>&DownTeeArrow; &otimes; <div class=\"date\" title=\"id: " + jsn.id + "\">" + jsn.updated + "</div>";
       
       let n = document.getElementById("noteList");
       n.insertBefore(div, n.childNodes[0]);
@@ -265,7 +265,16 @@
         }
       }
     }
-
+    
+    /*
+    Ideas for visualizing, strategizing
+    One visual canvas, Pixijs
+    The canvas has some basic properties (like axis/labels)
+    Coloring of note can be adjusted on "degree" of axis (gradient)
+    All notes are elements, they are in the sidebar until i drag it to location
+    Notes need additional properties: x & y location, nice to have: relation?
+    Note text is capped to make it small and compact
+    */
   </script>
 </head>
 
