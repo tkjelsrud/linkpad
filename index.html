@@ -125,7 +125,7 @@
     }
     
     function tagListDom(list) {
-      let tags = list.split(/([\s,]+)|(\r?\n|\r)/);
+      let tags = list.split(/[\s,]+/); //|(\r?\n|\r)
       let html = "";
       for(let i = 0; i < tags.length; i++) {
         if(tags[i].trim() != "")
@@ -160,7 +160,7 @@
       let jsn = {'id': id};
    	  let d = document.getElementById(id);
       jsn.text = d.children[0].innerText; //.replace(/circle_*/i, '');;
-      jsn.tags = d.children[1].innerText.replace("&nbsp", " ");
+      jsn.tags = d.children[1].innerText.replace(new Array("&nbsp", "\n", ","), " ");
       jsn.updated = (new Date()).toLocaleDateString('nb-NO');
       if(glob.focusTag && !jsn.tags.includes(glob.focusTag))
       	jsn.tags += " " + glob.focusTag;
