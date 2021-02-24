@@ -113,7 +113,9 @@
       div.id = jsn.id;
       div.className = 'note' + (jsn.styles? " " + jsn.styles: "");
       div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + linkify(iconify(jsn.text)) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class=\"date\" title=\"id: " + jsn.id + "\">" + jsn.updated + "</div>";
-      document.getElementById("noteList").appendChild(div); 
+      
+      let n = document.getElementById("noteList");
+      n.insertBefore(div, n.childNodes[0]);
     }
     
     function iconify(str) {
