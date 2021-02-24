@@ -112,7 +112,7 @@
       let div = document.createElement('div');
       div.id = jsn.id;
       div.className = 'note' + (jsn.styles? " " + jsn.styles: "");
-      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + linkify(iconify(jsn.text)) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div>&DownTeeArrow; &otimes; <div class=\"date\" title=\"id: " + jsn.id + "\">" + jsn.updated + "</div>";
+      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + linkify(iconify(jsn.text)) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class=\"date\" title=\"id: " + jsn.id + "\"> <span onclick=\"alert('test')\">&DownTeeArrow;</span> &otimes; " + jsn.updated + "</div>";
       
       let n = document.getElementById("noteList");
       n.insertBefore(div, n.childNodes[0]);
