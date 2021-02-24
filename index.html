@@ -125,7 +125,7 @@
     }
     
     function tagListDom(list) {
-      let tags = list.split(/[\s,]+/);
+      let tags = list.split(/([\s,]+)|(\r?\n|\r)/);
       let html = "";
       for(let i = 0; i < tags.length; i++) {
         if(tags[i].trim() != "")
