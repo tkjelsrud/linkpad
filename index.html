@@ -112,7 +112,7 @@
       let div = document.createElement('div');
       div.id = jsn.id;
       div.className = 'note' + (jsn.styles? " " + jsn.styles: "");
-      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + linkify(iconify(jsn.text.replace(new Array("\n", "\r", "&nbsp;"), "<br\>"))) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class=\"date\" title=\"id: " + jsn.id + "\">" + jsn.updated + "</div>";
+      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + linkify(iconify(jsn.text)) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class=\"date\" title=\"id: " + jsn.id + "\">" + jsn.updated + "</div>";
       document.getElementById("noteList").appendChild(div); 
     }
     
@@ -120,7 +120,10 @@
       //str = str.replace("TODO:", "<i class=\"material-icons md-18\">circle_notifications</i> TODO: ");
       //str = str.replace("DONE:", "<i class=\"material-icons md-18\">done</i> DONE: ");
       //str = str.replace(" * ", "<br/><i class=\"material-icons md-18\" style=\"font-size: 9px\">stop_circle</i><span style=\"display:none\"> * </span>");
-      str = str.replace("*", "<br/> *");
+      str = str.replaceAll("\n", "<br/>");
+      str = str.replaceAll("&nbsp;", " ");
+      str = str.replaceAll("/\s+/", " ");
+      str = str.replaceAll("*", "<br/> *");
       return str;
     }
     
