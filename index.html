@@ -112,7 +112,7 @@
       let div = document.createElement('div');
       div.id = jsn.id;
       div.className = 'note' + (jsn.styles? " " + jsn.styles: "");
-      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + linkify(iconify(jsn.text)) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class=\"date\" title=\"id: " + jsn.id + "\"> <span onclick=\"alert('test')\">&DownTeeArrow;</span> &otimes; " + jsn.updated + "</div>";
+      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + linkify(iconify(jsn.text)) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class=\"date\" title=\"id: " + jsn.id + "\"> <span onclick=\"archiveNote(" + jsn.id + ")\">&DownTeeArrow;</span> <span onclick=\"trashNote(" + jsn.id + ")\">&otimes;</span> " + jsn.updated + "</div>";
       
       let n = document.getElementById("noteList");
       n.insertBefore(div, n.childNodes[0]);
@@ -241,6 +241,27 @@
       
       delete glob.notes[id]
       localStorage.removeItem(id);
+    }
+    
+    function archiveNote(id) {
+      let t = glob.notes[id].tags;
+      if(!t.includes("archive")) {
+        glob.notes[id].tags.push("archive");
+        addDomTag(id, "archive");
+      }
+    }
+    
+    function trashNote(id) {
+      let t = glob.notes[id].tags;
+      if(!t.includes("trash")) {
+        glob.notes[id].tags.push("trash");
+        addDomTag(id, "trash");
+      }
+    }
+    
+    function addDomTag(id, tag) {
+      let d = document.getElementById(id);
+      d.children[1].innerHtml += "<div class=\"tag\">" + tag + "</div>";
     }
     
     function highlightNote(id) {
