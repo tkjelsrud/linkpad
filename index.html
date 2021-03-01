@@ -1,8 +1,6 @@
 <html>
 <head>
  <title>linkpad 0.1</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
   <style>
     /*
       HEX: #99bbad
@@ -112,13 +110,13 @@
       let div = document.createElement('div');
       div.id = jsn.id;
       div.className = 'note' + (jsn.styles? " " + jsn.styles: "");
-      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + linkify(iconify(jsn.text)) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class=\"date\" title=\"id: " + jsn.id + "\"> <span onclick=\"archiveNote(" + jsn.id + ")\">&DownTeeArrow;</span> <span onclick=\"trashNote(" + jsn.id + ")\">&otimes;</span> " + jsn.updated + "</div>";
+      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + formatTextToDom(jsn.text) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class\"attr\" contenteditable=\"true\">--</div><div class=\"date\" title=\"id: " + jsn.id + "\"> <span onclick=\"archiveNote(" + jsn.id + ")\">&DownTeeArrow;</span> <span onclick=\"trashNote(" + jsn.id + ")\">&otimes;</span> " + jsn.updated + "</div>";
       
       let n = document.getElementById("noteList");
       n.insertBefore(div, n.childNodes[0]);
     }
     
-    function iconify(str) {
+    function formatTextToDom(str) {
       //str = str.replace("TODO:", "<i class=\"material-icons md-18\">circle_notifications</i> TODO: ");
       //str = str.replace("DONE:", "<i class=\"material-icons md-18\">done</i> DONE: ");
       //str = str.replace(" * ", "<br/><i class=\"material-icons md-18\" style=\"font-size: 9px\">stop_circle</i><span style=\"display:none\"> * </span>");
@@ -126,6 +124,9 @@
       str = str.replaceAll("&nbsp;", " ");
       str = str.replaceAll("/\s+/", " ");
       str = str.replaceAll("*", "&bull;");
+      
+      str = linkify(str);
+      
       return str;
     }
     
@@ -169,6 +170,7 @@
       jsn.updated = (new Date()).toLocaleDateString('nb-NO');
       if(glob.focusTag && !jsn.tags.includes(glob.focusTag))
       	jsn.tags += " " + glob.focusTag;
+      
       saveNote(jsn);
       highlightNote(id);
     }
@@ -295,6 +297,9 @@
     All notes are elements, they are in the sidebar until i drag it to location
     Notes need additional properties: x & y location, nice to have: relation?
     Note text is capped to make it small and compact
+    
+    Signs:
+    https://dev.w3.org/html5/html-author/charref
     */
   </script>
 </head>
