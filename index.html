@@ -94,6 +94,15 @@
       content: "#";
       color: #FFF;
     }
+    
+    .attr {
+      float: left;
+      border-radius: 4px;
+      background-color: #c6a9a3;
+      color: #000;
+      margin: 1px;
+      margin-right: 4px;
+    }
 
     body {
       background-color: #99bbad; 
@@ -184,6 +193,7 @@
    	  let d = document.getElementById(id);
       jsn.text = d.children[0].innerText; //.replace(/circle_*/i, '');;
       jsn.tags = d.children[1].innerText.replace(new Array("&nbsp", "\n", ","), " ");
+      jsn.attr = d.children[2].innerText.replace(new Array("&nbsp", "\n", ","), " ");
       jsn.updated = (new Date()).toLocaleDateString('nb-NO');
       if(glob.focusTag && !jsn.tags.includes(glob.focusTag))
       	jsn.tags += " " + glob.focusTag;
