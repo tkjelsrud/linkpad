@@ -159,9 +159,9 @@
     function attrListDom(list) {
       let attr = list.split(/[\s,]+/); 
       let html = "";
-      for(let i = 0; i < tags.length; i++) {
-        if(tags[i].trim() != "")
-      		html += "<div class=\"attr\">" + tags[i] + "</div>";
+      for(let i = 0; i < attr.length; i++) {
+        if(attr[i].trim() != "")
+      		html += "<div class=\"attr\">" + attr[i] + "</div>";
       }
       return html;
     }
