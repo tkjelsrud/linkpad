@@ -67,7 +67,7 @@
       color: #999;
       width: 100%;
     }
-    .note .attr {
+    .note .attributes {
       float: left;
       font-size: 9px;
       padding: 2px;
@@ -108,7 +108,7 @@
   
     function addNote(text) {
       let nid = incrNextId();
-      let jsn = {'id': nid, 'text': text, 'tags': "", 'loc': {}, 'created': null, 'updated': null, 'styles': ""};
+      let jsn = {'id': nid, 'text': text, 'tags': "", 'attr': "", 'loc': {}, 'created': null, 'updated': null, 'styles': ""};
       glob.notes[nid] = jsn;
       noteToDom(jsn);
     }
@@ -117,7 +117,7 @@
       let div = document.createElement('div');
       div.id = jsn.id;
       div.className = 'note' + (jsn.styles? " " + jsn.styles: "");
-      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + formatTextToDom(jsn.text) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class\"attr\" contenteditable=\"true\">--</div><div class=\"date\" title=\"id: " + jsn.id + "\"> <span onclick=\"archiveNote(" + jsn.id + ")\">&DownTeeArrow;</span> <span onclick=\"trashNote(" + jsn.id + ")\">&otimes;</span> " + jsn.updated + "</div>";
+      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + formatTextToDom(jsn.text) + "</div><div class\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class\"attributes\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">"  + attrListDom(jsn.attr) + "</div><div class=\"date\" title=\"id: " + jsn.id + "\"> <span onclick=\"archiveNote(" + jsn.id + ")\">&DownTeeArrow;</span> <span onclick=\"trashNote(" + jsn.id + ")\">&otimes;</span> " + jsn.updated + "</div>";
       
       let n = document.getElementById("noteList");
       n.insertBefore(div, n.childNodes[0]);
@@ -143,6 +143,16 @@
       for(let i = 0; i < tags.length; i++) {
         if(tags[i].trim() != "")
       		html += "<div class=\"tag\">" + tags[i] + "</div>";
+      }
+      return html;
+    }
+    
+    function attrListDom(list) {
+      let attr = list.split(/[\s,]+/); 
+      let html = "";
+      for(let i = 0; i < tags.length; i++) {
+        if(tags[i].trim() != "")
+      		html += "<div class=\"attr\">" + tags[i] + "</div>";
       }
       return html;
     }
