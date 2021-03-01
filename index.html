@@ -145,6 +145,7 @@
       str = str.replaceAll("&nbsp;", " ");
       str = str.replaceAll("/\s+/", " ");
       str = str.replaceAll("*", "&bull;");
+      str = str.replaceAll("-->", "&rArr;");
       
       str = linkify(str);
       
