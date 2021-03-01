@@ -284,6 +284,9 @@
     }
     
     function toggleMinNote(id) {
+      if(!glob.notes[id].styles)
+        glob.notes[id].styles = "";
+      
       if(glob.notes[id].styles.indexOf("min") == -1) {
         glob.notes[id].styles += " min";
         document.getElementById(id).classList.add("min");
