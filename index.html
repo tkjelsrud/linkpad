@@ -131,7 +131,7 @@
       let div = document.createElement('div');
       div.id = jsn.id;
       div.className = 'note' + (jsn.styles? " " + jsn.styles: "");
-      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + formatTextToDom(jsn.text) + "</div><div class=\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class=\"attributes\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">"  + attrListDom(jsn.attr) + "</div><div class=\"date\" title=\"id:" + jsn.id + " updated:" + jsn.updated + "\"> <span onclick=\"archiveNote(" + jsn.id + ")\">&DownTeeArrow;</span> <span onclick=\"trashNote(" + jsn.id + ")\">&otimes;</span> " + jsn.created + "</div>";
+      div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + formatTextToDom(jsn.text) + "</div><div class=\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class=\"attributes\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">"  + attrListDom(jsn.attr) + "</div><div class=\"date\" title=\"id:" + jsn.id + " updated:" + jsn.updated + "\"> <span onclick=\"archiveNote(" + jsn.id + ")\">&DownTeeArrow;</span> <span onclick=\"trashNote(" + jsn.id + ")\">&otimes;</span> " + jsn.created + "<div style=\"position:relative;top:0px\" onClick=\"toggleMinNote(" + jsn.id + ")\">[+-]</div></div>";
       
       let n = document.getElementById("noteList");
       n.insertBefore(div, n.childNodes[0]);
@@ -283,17 +283,16 @@
       localStorage.removeItem(id);
     }
     
-    function minNote(id) {
+    function toggleMinNote(id) {
       if(glob.notes[id].styles.indexOf("min") == -1) {
         glob.notes[id].styles += " min";
         document.getElementById(id).classList.add("min");
-        saveDomNote(id);
+        //document.getElementById(id + "min").classList.add("min");
       }
-    }
-    
-    function maxNode(id) {
-      glob.notes[id].styles = glob.notes[id].styles.replace("min", "");
-      document.getElementById(id).classList.remove("min");
+      else {
+        glob.notes[id].styles = glob.notes[id].styles.replace("min", "");
+      	document.getElementById(id).classList.remove("min");
+      }
       saveDomNote(id);
     }
     
