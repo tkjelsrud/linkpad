@@ -200,7 +200,7 @@
       jsn.text = d.children[0].innerText; //.replace(/circle_*/i, '');;
       jsn.tags = d.children[1].innerText.replace(new Array("&nbsp", "\n", ","), " ");
       jsn.attr = d.children[2].innerText.replace(new Array("&nbsp", "\n", ","), " ");
-      jsn.created = (glob.notes[id] ? glob.notes[id].created : (new Date()).toLocaleDateString('nb-NO'));
+      jsn.created = (glob.notes[id] && glob.notes[id].created ? glob.notes[id].created : (new Date()).toLocaleDateString('nb-NO'));
       jsn.updated = (new Date()).toLocaleDateString('nb-NO');
       if(glob.focusTag && !jsn.tags.includes(glob.focusTag))
       	jsn.tags += " " + glob.focusTag;
