@@ -283,6 +283,20 @@
       localStorage.removeItem(id);
     }
     
+    function minNote(id) {
+      if(glob.notes[id].styles.indexOf("min") == -1) {
+        glob.notes[id].styles += " min";
+        document.getElementById(id).classList.add("min");
+        saveDomNote(id);
+      }
+    }
+    
+    function maxNode(id) {
+      glob.notes[id].styles = glob.notes[id].styles.replace("min", "");
+      document.getElementById(id).classList.remove("min");
+      saveDomNote(id);
+    }
+    
     function archiveNote(id) {
       let t = glob.notes[id].tags;
       if(!t.includes("archive")) {
