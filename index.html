@@ -303,7 +303,7 @@
     function archiveNote(id) {
       let t = glob.notes[id].tags;
       if(!t.includes("archive")) {
-        glob.notes[id].tags.push("archive");
+        glob.notes[id].tags += "archive";
         addDomTag(id, "archive");
       }
     }
@@ -311,7 +311,7 @@
     function trashNote(id) {
       let t = glob.notes[id].tags;
       if(!t.includes("trash")) {
-        glob.notes[id].tags.push("trash");
+        glob.notes[id].tags += "trash";
         addDomTag(id, "trash");
       }
     }
