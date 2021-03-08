@@ -55,6 +55,13 @@
     
     .material-icons {
       font-size: 12px;
+      filter: drop-shadow(2px 2px 1px #999);
+      border: 1px solid #9a8194;
+      min-height: 30px;
+    }
+    .box {
+      position: absolute;
+      background-color: #ebd8b7;
     }
     
     .note {
@@ -401,7 +408,7 @@
   </div>
   <div id="tagList"><div class="tag" onClick="filterTag(null);" href="#">ALL</div>&nbsp;</div>
   <div id="overview">
-    <div class="node" style="position:relative;top:30px;left:100px">XXX</div>
+    <div class="box" style="top:30px;left:100px">XXX</div>
   </div>
   <div id="noteList">&nbsp;
   </div>
