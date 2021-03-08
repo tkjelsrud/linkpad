@@ -28,14 +28,14 @@
     
     #tagList {
       float: left;
-      width: 70%;
+      width: 80%;
       background-color: #9a8194;
       margin: 2px;
       padding: 4px;
     }
     #options {
       float: left;
-      width: 25%;
+      width: 20%;
       margin: 2px;
       padding: 4px;
       background-color: #9a8194;
@@ -370,11 +370,11 @@
 </head>
 
 <body>
-  <div id="tagList"><div class="tag" onClick="filterTag(null);" href="#">ALL</div>&nbsp;</div>
   <div id="options">
     <a href="javascript:void(addNote('new note'))">Add note</a> | 
   	<a href="javascript:void(emptyTrash())">Delete trash</a>
   </div>
+  <div id="tagList"><div class="tag" onClick="filterTag(null);" href="#">ALL</div>&nbsp;</div>
   <div id="overview"></div>
   <div id="noteList">&nbsp;
   </div>
