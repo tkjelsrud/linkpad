@@ -64,7 +64,7 @@
       background-color: #ebd8b7;
       filter: drop-shadow(2px 2px 1px #999);
       border: 1px solid #9a8194;
-      padding: 2px;
+      padding: 3px;
     }
     
     .note {
@@ -412,8 +412,8 @@
   </div>
   <div id="tagList"><div class="tag" onClick="filterTag(null);" href="#">ALL</div>&nbsp;</div>
   <div id="overview">
-    <div id="b1" class="box" style="top:30px;left:100px" contenteditable="true">XXX</div>
-    <div id="b2" class="box" style="top:30px;left:150px" contenteditable="true">XXX</div>
+    <div id="b1" class="box" style="top:30px;left:100px"><div contenteditable="true">xxxxxx</div></div>
+    <div id="b2" class="box" style="top:30px;left:150px"><div contenteditable="true">xxxxxx</div></div>
   </div>
   <div id="noteList">&nbsp;
   </div>
@@ -422,8 +422,8 @@
   <script type="text/javascript">
     loadAllNotes();
 
-    //dragElement(document.getElementById("b1"));
-    //dragElement(document.getElementById("b2"));
+    dragElement(document.getElementById("b1"));
+    dragElement(document.getElementById("b2"));
     
 	//window.addEventListener('keyup', checkTabPress);
     /*window.addEventListener('paste', (event) => {
