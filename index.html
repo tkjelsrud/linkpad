@@ -412,7 +412,8 @@
   </div>
   <div id="tagList"><div class="tag" onClick="filterTag(null);" href="#">ALL</div>&nbsp;</div>
   <div id="overview">
-    <div id="b1" class="box" style="top:30px;left:100px">XXX</div>
+    <div id="b1" class="box" style="top:30px;left:100px" contenteditable="true">XXX</div>
+    <div id="b2" class="box" style="top:30px;left:100px" contenteditable="true">XXX</div>
   </div>
   <div id="noteList">&nbsp;
   </div>
@@ -422,6 +423,7 @@
     loadAllNotes();
 
     dragElement(document.getElementById("b1"));
+    dragElement(document.getElementById("b2"));
     
 	//window.addEventListener('keyup', checkTabPress);
     /*window.addEventListener('paste', (event) => {
