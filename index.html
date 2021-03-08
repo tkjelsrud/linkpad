@@ -158,7 +158,7 @@
   <script type="text/javascript" src="lib/util.js"></script>
   <script type="text/javascript" src="lib/drag.js"></script>
   <script type="text/javascript">
-    var glob = {'notes': {}, 'tags': [], 'focusTag': null};
+    var glob = {'notes': {}, 'tags': [], 'focusTag': null, 'boxes': []};
   
     function addNote(text) {
       let nid = incrNextId();
@@ -191,6 +191,19 @@
       
       return str;
     }
+    
+    function addBox(text) {
+      let b = {'text': text, 'x': 20, 'y':20};
+      glob.boxes.push(b);
+      boxToDom(b);
+    }
+    
+    function boxToDom(box) {
+      /*function noteToDom(jsn) {
+      let div = document.createElement('div');
+      
+<div id="b1" class="box" style="top:30px;left:100px"><div id="b1header" class="header">&nbsp;</div><div contenteditable="true">xxxxxx</div></div>*/
+	}
     
     function tagListDom(list) {
       let html = "";
@@ -418,6 +431,7 @@
   </div>
   <div id="tagList"><div class="tag" onClick="filterTag(null);" href="#">ALL</div>&nbsp;</div>
   <div id="overview">
+    <div class="button" onClick="addBox('new box')">&bigoplus; Add box</div> 
     <div id="b1" class="box" style="top:30px;left:100px"><div id="b1header" class="header">&nbsp;</div><div contenteditable="true">xxxxxx</div></div>
     <div id="b2" class="box" style="top:30px;left:150px"><div id="b2header" class="header">&nbsp;</div><div contenteditable="true">xxxxxx</div></div>
   </div>
