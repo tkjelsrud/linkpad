@@ -346,6 +346,10 @@
       d.children[1].innerHtml += "<div class=\"tag\">" + tag + "</div>";
     }
     
+    function toggleKata() {
+      // Show hide strategy/kata pane
+    }
+    
     function highlightNote(id) {
       // Show signal
       let d = document.getElementById(id);
@@ -388,7 +392,7 @@
   <div id="options">
     <div class="button" onClick="addNote('new note')">&bigoplus; Add note</div> 
   	<div class="button" onClick="emptyTrash()">&Cross; Empty trash</div>
-    <div class="button" onClick="">&rtrif; Toggle kata</div>
+    <div class="button" onClick="toggleKata()">&rtrif; Toggle kata</div>
   </div>
   <div id="tagList"><div class="tag" onClick="filterTag(null);" href="#">ALL</div>&nbsp;</div>
   <div id="overview">
