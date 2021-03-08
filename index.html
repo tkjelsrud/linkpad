@@ -349,7 +349,10 @@
     function toggleOverview() {
       // Show hide strategy/kata pane
       let d = document.getElementById("overview");
-      d.style.display = "none";
+      if(d.style.display != "none") 
+      	d.style.display = "none";
+      else
+        d.style.display = "block";
     }
     
     function highlightNote(id) {
