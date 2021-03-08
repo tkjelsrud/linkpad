@@ -221,6 +221,8 @@
       if(glob.focusTag && !jsn.tags.includes(glob.focusTag))
       	jsn.tags += " " + glob.focusTag;
       
+      d.children[1].innerHTML = formatTextToDom(jsn.text);
+      
       saveNote(jsn);
       highlightNote(id);
     }
