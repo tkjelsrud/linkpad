@@ -184,10 +184,10 @@
       //str = str.replace(" * ", "<br/><i class=\"material-icons md-18\" style=\"font-size: 9px\">stop_circle</i><span style=\"display:none\"> * </span>");
       
       str = str.replaceAll("&nbsp;", " ");
-      str = str.replaceAll(/\s+/g, " ");
       str = str.replaceAll("*", "&bull;");
       //str = str.replaceAll(/^(CHK|&check;) (.+)\n/gm, "&check; <del>$2</del>\n");
       str = str.replaceAll("\n", "<br/>");
+      str = str.replaceAll(/\s+/g, " ");
       str = str.replaceAll("-->", "&rArr;");
       
       str = linkify(str);
