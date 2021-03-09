@@ -184,9 +184,9 @@
       //str = str.replace(" * ", "<br/><i class=\"material-icons md-18\" style=\"font-size: 9px\">stop_circle</i><span style=\"display:none\"> * </span>");
       str = str.replaceAll("\n", "<br/>");
       str = str.replaceAll("&nbsp;", " ");
-      str = str.replaceAll("/\s+/", " ");
+      str = str.replaceAll(/\s+/, " ");
       str = str.replaceAll("*", "&bull;");
-      str = str.replaceAll("/^CHK (.*?)/g", "&check; <del>$1</del>");
+      str = str.replaceAll(/^CHK (.*?)/g, "&check; <del>$1</del>");
       //str = str.replaceAll("CHK ", "&check; ");
       str = str.replaceAll("-->", "&rArr;");
       
