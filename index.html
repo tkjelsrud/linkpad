@@ -186,7 +186,7 @@
       str = str.replaceAll("&nbsp;", " ");
       str = str.replaceAll(/\s+/g, " ");
       str = str.replaceAll("*", "&bull;");
-      str = str.replaceAll(/(CHK|&check;) (.+)/g, "&check; <del>$1</del>");
+      str = str.replaceAll(/(CHK|&check;) (.+)/g, "&check; <del>$2</del>");
       str = str.replaceAll("-->", "&rArr;");
       
       str = linkify(str);
