@@ -266,7 +266,10 @@
     function loadBoxes() {
       let b = localStorage.getItem('boxes');
       if(b) {
-        jsn = JSON.parse(b);
+        glob.boxes = JSON.parse(b);
+        for(var i = 0; i < glob.boxes.length; i++) {
+          boxToDom(glob.boxes[i]);
+        }
       }
     }
     
@@ -299,12 +302,6 @@
       }
     }
     
-    function saveOverview() {
-      //let d = document.getElementById("overview");
-      //for (var i = 0; i < d.childNodes.length; i++) {
-      //  
-      //}
-    }
     
     function loadAllNotes() {
       let lid = parseInt(localStorage.getItem('lastId'));
