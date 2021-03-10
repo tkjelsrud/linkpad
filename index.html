@@ -207,7 +207,7 @@
       div.id = "b" + box.id;
       div.className = "box";
       let pr = document.getElementById("overview").getBoundingClientRect();
-      
+      console.log(pr);
       console.log((box.y - pr.top) + "pxy " + (box.x - pr.left) + "pxx");
       div.style.top = (box.y - pr.y) + "px";
       div.style.left = (box.x - pr.x) + "px";
