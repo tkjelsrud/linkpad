@@ -196,7 +196,7 @@
     }
     
     function addBox(text) {
-      let b = {'id': "", 'text': text, 'x': "20px", 'y':"20px"};
+      let b = {'id': "", 'text': text, 'x': 20, 'y':20};
       glob.boxes.push(b);
       b.id = glob.boxes.length;
       boxToDom(b);
@@ -206,8 +206,10 @@
       let div = document.createElement('div');
       div.id = "b" + box.id;
       div.className = "box";
-      div.style.top = box.x;
-      div.style.left = box.y;
+      let pr = document.getElementById("overview").getBoundingClientRect();
+      
+      div.style.top = (box.x - pr.x) + "px";
+      div.style.left = (box.y - pr.y) + "px";
       div.innerHTML = "<div class=\"header\">&nbsp;</div><div contenteditable=\"true\">" + box.text + "</div>";
       dragElement(div);
       document.getElementById("overview").appendChild(div);
@@ -260,7 +262,7 @@
     }
     
     function saveBox(num, elem) {
-      console.log(num + " " + elem);
+      //console.log(num + " " + elem);
       //glob.boxes[num].text = elem.childNodes[1].innerText;
       
       //
