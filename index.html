@@ -196,7 +196,7 @@
     }
     
     function addBox(text) {
-      let b = {'id': "", 'text': text, 'x': 20, 'y':20};
+      let b = {'id': "", 'text': text, 'x': "20px", 'y':"20px"};
       glob.boxes.push(b);
       b.id = glob.boxes.length;
       boxToDom(b);
@@ -206,8 +206,8 @@
       let div = document.createElement('div');
       div.id = "b" + box.id;
       div.className = "box";
-      div.style.top = "20px";
-      div.style.left = "100px";
+      div.style.top = box.x;
+      div.style.left = box.y;
       div.innerHTML = "<div class=\"header\">&nbsp;</div><div contenteditable=\"true\">" + box.text + "</div>";
       dragElement(div);
       document.getElementById("overview").appendChild(div);
