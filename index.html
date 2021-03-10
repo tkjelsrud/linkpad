@@ -206,9 +206,10 @@
       let div = document.createElement('div');
       div.id = "b" + box.id;
       div.className = "box";
-      let pr = document.getElementById("overview").getBoundingClientRect();
-      console.log(pr);
-      console.log((box.y - pr.top) + "pxy " + (box.x - pr.left) + "pxx");
+      //let pr = document.getElementById("overview").getBoundingClientRect();
+      let pr = {'x': 8, 'y': 48}; // Hardcoding because of display:none issue
+      //console.log(pr);
+      //console.log((box.y - pr.y) + "pxy " + (box.x - pr.x) + "pxx");
       div.style.top = (box.y - pr.y) + "px";
       div.style.left = (box.x - pr.x) + "px";
       div.innerHTML = "<div class=\"header\">&nbsp;</div><div contenteditable=\"true\">" + box.text + "</div>";
