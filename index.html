@@ -205,6 +205,7 @@
       let div = document.createElement('div');
       div.className = "box";
       div.innerHTML = "<div class=\"header\">&nbsp;</div><div contenteditable=\"true\">" + box.text + "</div>";
+      dragElement(div);
       document.getElementById("overview").appendChild(div);
 	}
     
