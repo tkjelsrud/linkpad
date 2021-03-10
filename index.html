@@ -204,15 +204,8 @@
     function boxToDom(box) {
       let div = document.createElement('div');
       div.className = "box";
-      div.innerHTML = "<div class=\"header\">&nbsp;</div><div contenteditable=\"true\">" + box.text + "</div>;
+      div.innerHTML = "<div class=\"header\">&nbsp;</div><div contenteditable=\"true\">" + box.text + "</div>";
       document.getElementById("overview").appendChild(div);
-      
-      //<div id="b1" class="box" style="top:30px;left:100px"><div id="b1header" class="header">&nbsp;</div><div contenteditable="true">xxxxxx</div></div>
-      
-      /*function noteToDom(jsn) {
-      let div = document.createElement('div');
-      
-<div class="box" style="top:30px;left:100px"><div id="b1header" class="header">&nbsp;</div><div contenteditable="true">xxxxxx</div></div>*/
 	}
     
     function tagListDom(list) {
