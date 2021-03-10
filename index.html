@@ -208,8 +208,8 @@
       div.className = "box";
       let pr = document.getElementById("overview").getBoundingClientRect();
       
-      div.style.top = (box.x - pr.x) + "px";
-      div.style.left = (box.y - pr.y) + "px";
+      div.style.top = (box.y - pr.y) + "px";
+      div.style.left = (box.x - pr.x) + "px";
       div.innerHTML = "<div class=\"header\">&nbsp;</div><div contenteditable=\"true\">" + box.text + "</div>";
       dragElement(div);
       document.getElementById("overview").appendChild(div);
