@@ -204,6 +204,8 @@
     function boxToDom(box) {
       let div = document.createElement('div');
       div.className = "box";
+      div.style.top = "20px";
+      div.style.left = "100px";
       div.innerHTML = "<div class=\"header\">&nbsp;</div><div contenteditable=\"true\">" + box.text + "</div>";
       dragElement(div);
       document.getElementById("overview").appendChild(div);
@@ -281,6 +283,10 @@
       catch(e) {
         alert("Failed to save: " + e);
       }
+    }
+    
+    function saveOverview() {
+      // 
     }
     
     function loadAllNotes() {
@@ -393,7 +399,7 @@
       // Show signal
       let d = document.getElementById(id);
       d.classList.add("high");
-      setTimeout(function(){ document.getElementById(id).classList.remove("high"); }, 2000);
+      setTimeout(function(){ document.getElementById(id).classList.remove("high"); }, 1000);
     }
     
     function emptyTrash() {
