@@ -260,6 +260,7 @@
     }
     
     function saveBox(num, elem) {
+      console.log(num + " " + elem);
       glob.boxes[num].text = elem.childNodes[1].innerText;
       glob.boxes[num].x = elem.style.left;
       glob.boxes[num].y = elem.style.top;
