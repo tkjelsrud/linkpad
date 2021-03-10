@@ -208,6 +208,7 @@
       div.className = "box";
       let pr = document.getElementById("overview").getBoundingClientRect();
       
+      console.log((box.y - pr.y) + "pxy " + (box.x - pr.x) + "pxx");
       div.style.top = (box.y - pr.y) + "px";
       div.style.left = (box.x - pr.x) + "px";
       div.innerHTML = "<div class=\"header\">&nbsp;</div><div contenteditable=\"true\">" + box.text + "</div>";
