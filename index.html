@@ -198,13 +198,13 @@
     function addBox(text) {
       let b = {'id: "", 'text': text, 'x': 20, 'y':20};
       glob.boxes.push(b);
-      b.id = "b" + glob.boxes.length;
-      
+      b.id = glob.boxes.length;
       boxToDom(b);
     }
     
     function boxToDom(box) {
       let div = document.createElement('div');
+      div.id = "b" + box.id;
       div.className = "box";
       div.style.top = "20px";
       div.style.left = "100px";
