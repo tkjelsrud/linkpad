@@ -196,8 +196,10 @@
     }
     
     function addBox(text) {
-      let b = {'text': text, 'x': 20, 'y':20};
+      let b = {'id: "", 'text': text, 'x': 20, 'y':20};
       glob.boxes.push(b);
+      b.id = "b" + glob.boxes.length;
+      
       boxToDom(b);
     }
     
@@ -255,6 +257,10 @@
       localStorage.setItem('lastId', "" + nid);
       
       return nid;
+    }
+    
+    function saveOverview() {
+      //
     }
     
     function saveDomNote(id) {
