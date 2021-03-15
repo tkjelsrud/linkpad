@@ -20,6 +20,7 @@
       border: 1px solid #9a8194;
       height: 450px;
     }
+    
     #overview {
       float: left;
       width: 99%;
@@ -172,7 +173,7 @@
   <script type="text/javascript" src="lib/util.js"></script>
   <script type="text/javascript" src="lib/drag.js"></script>
   <script type="text/javascript">
-    var glob = {'notes': {}, 'tags': [], 'focusTag': null, 'boxes': []};
+    var glob = {'notes': {}, 'tags': [], 'focusTag': null, 'boxes': [], 'bytes': 0, 'ms': 0};
   
     function addNote(text) {
       let nid = incrNextId();
@@ -291,6 +292,8 @@
     
     function loadBoxes() {
       let b = localStorage.getItem('boxes');
+      glob.bytes += byteCount(b);
+      
       if(b) {
         glob.boxes = JSON.parse(b);
         for(var i = 0; i < glob.boxes.length; i++) {
@@ -333,15 +336,22 @@
       let lid = parseInt(localStorage.getItem('lastId'));
       if(!lid) lid = 0;
       
+      glob.bytes = 0;
+      glob.ms = (new Date()).getMilliseconds();
+      
       for(i = 0; i <= lid; i++) {
         loadNote(i);
       }
       
       filterTag(null);
+      
+      glob.ms = (new Date()).getMilliseconds() - glob.ms;
     }
     
     function loadNote(id) {
       let n = localStorage.getItem(id);
+      glob.bytes += byteCount(n);
+      
       if(n) {
         n = JSON.parse(n);
         noteToDom(n);
@@ -483,6 +493,7 @@
   <div id="tagList"><div class="tag" onClick="filterTag(null);" href="#">ALL</div>&nbsp;</div>
   <div id="settings" style="display:none">
     Settings
+    <div id="byteSize" style="font-family:Courier"></div>
     <div class="button" onClick="emptyTrash()">&Cross; Trash</div>
   </div>
   <div id="overview" style="display:none">
@@ -496,6 +507,8 @@
   <script type="text/javascript">
     loadAllNotes();
     loadBoxes();
+    
+    document.getElementById("byteSize").innerHTML = "Data size " + glob.bytes + "b <br/>Load time " + glob.ms + "ms";
 
     //dragElement(document.getElementById("b1"));
     //dragElement(document.getElementById("b2"));
