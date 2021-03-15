@@ -14,11 +14,10 @@
       float: left;
       width: 99%;
       background-color: #F0E7E4;
-  	  background-size: 800px 450px;
       margin-bottom: 6px;
       filter: drop-shadow(2px 2px 1px #999);
       border: 1px solid #9a8194;
-      height: 450px;
+      height: 200px;
     }
     
     #overview {
@@ -494,7 +493,8 @@
   <div id="settings" style="display:none">
     Settings
     <div id="byteSize" style="font-family:Courier"></div>
-    <div class="button" onClick="emptyTrash()">&Cross; Trash</div>
+    Trash notes that are tagged "trash": <div class="button" onClick="emptyTrash()">&Cross; Trash</div>
+    <textarea id="datadump" name="datadump" rows="4" cols="50"> </textarea>
   </div>
   <div id="overview" style="display:none">
     <div class="button" onClick="addBox('new box')">&bigoplus; Add box</div> 
