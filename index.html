@@ -211,7 +211,7 @@
       str = str.replaceAll("&nbsp;", " ");
       str = str.replaceAll("*", "&bull;");
       str = str.replaceAll(/^(CHK|&check;|✓) (.+)\n/gm, "&check; <del>$2</del>\n");
-      str = str.replaceAll(/^(TODO) (.+)\n/gm, "&#9634; <span class=\"todo\">$2</span>\n");
+      str = str.replaceAll(/^(TODO|&#9634;|▢) (.+)\n/gm, "&#9634; <span class=\"todo\">$2</span>\n");
       str = str.replaceAll("\n", "<br/>");
       str = str.replaceAll(/\s+/g, " ");
       str = str.replaceAll("-->", "&rArr;");
