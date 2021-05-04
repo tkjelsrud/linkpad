@@ -229,7 +229,7 @@
       str = str.replaceAll("*", "&bull;");
       str = str.replaceAll(/^(CHK|&check;|✓) (.+)\n/gm, "&check; <del>$2</del>\n");
       str = str.replaceAll(/^(TODO|&#9634;|▢) (.+)\n/gm, "<span class=\"todo\">&#9634; $2</span>");
-      str = str.replaceAll(/^(@[a-zA-Z]+) (.+)\n/gm, "<span style=\"cursor: pointer\" onclick=\"view('$1');\" class=\"person\" data=\"$1\">$1 $2</span>");
+      str = str.replaceAll(/^@([a-zA-Z]+) (.+)\n/gm, "<span style=\"cursor: pointer\" onclick=\"view('$1');\" class=\"person\" data=\"$1\">@$1 $2</span>");
       str = str.replaceAll("\n", "<br/>");
        str = str.replaceAll("<br/><br/>", "<br/>");
       str = str.replaceAll(/\s+/g, " ");
@@ -506,7 +506,8 @@
           d.style.display = "none";
         }
         else {
-      	  d.innerHTML = tag;
+          let x = document.querySelectorAll('[data=' + tag + ']');
+      	  d.innerHTML = x;
       	  d.style.display = "block";
         }
     }
