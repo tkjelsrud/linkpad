@@ -513,7 +513,7 @@
           let x = document.querySelectorAll('span[data=' + tag + ']');
           console.log(x);
       	  for(let i = 0; i < x.length; i++) {
-            d.innerHtml += x[i].innerText;
+            d.innerHTML += x[i].innerText;
           }
       	  d.style.display = "block";
         }
