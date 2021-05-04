@@ -492,8 +492,14 @@
     
     function view(tag) {
     	let d = document.getElementById("overlay"); 
-      	d.innerHTML = tag;
-      	d.style.display = "block";
+      
+      	if(tag == '') {
+          d.style.display = "none";
+        }
+        else {
+      	  d.innerHTML = tag;
+      	  d.style.display = "block";
+        }
     }
     
     /*
