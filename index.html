@@ -221,7 +221,7 @@
       str = str.replaceAll("*", "&bull;");
       str = str.replaceAll(/^(CHK|&check;|✓) (.+)\n/gm, "&check; <del>$2</del>\n");
       str = str.replaceAll(/^(TODO|&#9634;|▢) (.+)\n/gm, "<span class=\"todo\">&#9634; $2</span>\n");
-      str = str.replaceAll(/^(@[a-zA-Z]+) (.+)\n/gm, "<span class=\"person\" data=\"$1\">$1 $2</span>\n");
+      str = str.replaceAll(/^(@[a-zA-Z]+) (.+)\n/gm, "<span onclick=\"view('$1');\" class=\"person\" data=\"$1\">$1 $2</span>\n");
       str = str.replaceAll("\n", "<br/>");
       str = str.replaceAll(/\s+/g, " ");
       str = str.replaceAll("-->", "&rArr;");
