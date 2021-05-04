@@ -490,6 +490,12 @@
       }
     }
     
+    function view(tag) {
+    	let d = document.getElementById("overlay"); 
+      	d.innerHTML = tag;
+      	d.style.display = "block";
+    }
+    
     /*
     Ideas for visualizing, strategizing
     One visual canvas, Pixijs
@@ -513,6 +519,7 @@
     <div class="button" onClick="togglePane('settings')">&#9881; Settings</div>
   </div>
   <div id="tagList"><div class="tag" onClick="filterTag(null);" href="#">ALL</div>&nbsp;</div>
+  <div id="overlay" style="display:none">Test 123</div>
   <div id="settings" style="display:none">
     Settings
     <div id="byteSize" style="font-family:Courier"></div>
