@@ -506,8 +506,11 @@
           d.style.display = "none";
         }
         else {
+          d.innerHtml = "";
           let x = document.querySelectorAll('[data=' + tag + ']');
-      	  d.innerHTML = x;
+      	  for(let i = 0; i < x.length; i++) {
+            d.innerHtml += x[i].innerText;
+          }
       	  d.style.display = "block";
         }
     }
