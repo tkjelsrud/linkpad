@@ -519,13 +519,13 @@
 
 <body>
   <div id="options">
-    <div class="button" onClick="addNote('new note')">&bigoplus; Add note</div> 
+    <div class="button" onclick="addNote('new note')">&bigoplus; Add note</div> 
   	
-    <div class="button" onClick="togglePane('overview')">&rtrif; Kata</div>
-    <div class="button" onClick="togglePane('settings')">&#9881; Settings</div>
+    <div class="button" onclick="togglePane('overview')">&rtrif; Kata</div>
+    <div class="button" onclick="togglePane('settings')">&#9881; Settings</div>
   </div>
-  <div id="tagList"><div class="tag" onClick="filterTag(null);" href="#">ALL</div>&nbsp;</div>
-  <div id="overlay" style="display:none">Test 123</div>
+  <div id="tagList"><div class="tag" onclick="filterTag(null);" href="#">ALL</div>&nbsp;</div>
+  <div id="overlay" style="display:none" onclick="view('');">Test 123</div>
   <div id="settings" style="display:none">
     Settings
     <div id="byteSize" style="font-family:Courier"></div>
@@ -533,7 +533,7 @@
     <textarea id="datadump" name="datadump" rows="4" cols="50"> </textarea>
   </div>
   <div id="overview" style="display:none">
-    <div class="button" onClick="addBox('new box')">&bigoplus; Add box</div> 
+    <div class="button" onclick="addBox('new box')">&bigoplus; Add box</div> 
     &nbsp;
   </div>
   <div id="noteList">&nbsp;
