@@ -510,7 +510,8 @@
         }
         else {
           d.innerHtml = "";
-          let x = document.querySelectorAll('[data=' + tag + ']');
+          let x = document.querySelectorAll('span[data=' + tag + ']');
+          console.log(x);
       	  for(let i = 0; i < x.length; i++) {
             d.innerHtml += x[i].innerText;
           }
