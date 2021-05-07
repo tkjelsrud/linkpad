@@ -469,11 +469,11 @@
     }
     
     function archiveNote(id) {
-      let t = glob.notes[id].tags;
-      if(!t.includes("archive")) {
-        glob.notes[id].tags += "archive";
-        addDomTag(id, "archive");
-      }
+      let nt = glob.notes[id];
+      glob.archive[id] = nt;
+      delete glob.notes[id];
+      
+      document.getElementById(id).style.display = "none";
     }
     
     function trashNote(id) {
