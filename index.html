@@ -63,6 +63,16 @@
       margin: 2px;
       padding: 4px;
     }
+    #personList {
+      float: left;
+      font-size: 9px;
+      width: 76%;
+      height: 28px;
+      overflow: hidden;
+      background-color: #9a8194;
+      margin: 2px;
+      padding: 4px;
+    }
     #options {
       float: left;
       width: 20%;
@@ -541,10 +551,10 @@
 <body>
   <div id="options">
     <div class="button" onclick="addNote('new note')">&bigoplus; Add note</div> 
-  	
     <div class="button" onclick="togglePane('overview')">&rtrif; Kata</div>
     <div class="button" onclick="togglePane('settings')">&#9881; Settings</div>
   </div>
+  <div id="personList">&nbsp;</div>
   <div id="tagList"><div class="tag" onclick="filterTag(null);" href="#">ALL</div>&nbsp;</div>
   <div id="overlay" style="display:none" onclick="view('');">Test 123</div>
   <div id="settings" style="display:none">
