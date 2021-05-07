@@ -533,6 +533,17 @@
         }
     }
     
+    function showPeopleTags() {
+      let arr = new Array();
+      let x = document.querySelectorAll('span[data]');
+      for(let i = 0; i < x.length; i++) {
+        let dt = x[i].data;
+        if(dt in arr) arr[dt]++;
+        else arr[dt] = 1;
+      }
+      console.log(arr);
+    }
+    
     /*
     Ideas for visualizing, strategizing
     One visual canvas, Pixijs
@@ -574,6 +585,7 @@
   <script type="text/javascript">
     loadAllNotes();
     loadBoxes();
+    showPeopleTags();
     
     document.getElementById("byteSize").innerHTML = "Data size " + glob.bytes + "b <br/>Load time " + glob.ms + "ms";
 
