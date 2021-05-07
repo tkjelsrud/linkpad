@@ -218,7 +218,7 @@
   <script type="text/javascript" src="lib/util.js"></script>
   <script type="text/javascript" src="lib/drag.js"></script>
   <script type="text/javascript">
-    var glob = {'notes': {}, 'tags': [], 'focusTag': null, 'boxes': [], 'bytes': 0, 'ms': 0};
+    var glob = {'notes': {}, 'tags': [], 'focusTag': null, 'boxes': [], 'archive': [], 'bytes': 0, 'ms': 0};
   
     function addNote(text) {
       let nid = incrNextId();
@@ -336,6 +336,7 @@
     
     function saveBoxes() {
       localStorage.setItem("boxes", JSON.stringify(glob.boxes));
+      localStorage.setItem("archive", JSON.stringify(glob.archive));
     }
     
     function loadBoxes() {
