@@ -545,7 +545,7 @@
       document.getElementById("personList").innerHTML = "";
       
       for (var k in arr) {
-        document.getElementById("personList").innerHTML += "<div>" + arr[k] + "</div>";
+        document.getElementById("personList").innerHTML += "<div onclick=\"view('" + arr[k] + "')\">" + arr[k] + "</div>";
       }
       
     }
