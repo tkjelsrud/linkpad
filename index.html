@@ -471,7 +471,7 @@
     function archiveNote(id) {
       let nt = glob.notes[id];
       glob.archive[id] = nt;
-      delete glob.notes[id];
+      deleteNote(id);
       
       document.getElementById(id).style.display = "none";
     }
