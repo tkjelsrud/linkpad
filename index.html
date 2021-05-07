@@ -349,6 +349,10 @@
           boxToDom(glob.boxes[i]);
         }
       }
+      
+      b = localStorage.getItem('archive');
+      if(b)
+      	glob.archive = JSON.parse(b);
     }
     
     
