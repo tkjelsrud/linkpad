@@ -537,7 +537,7 @@
       let arr = new Array();
       let x = document.querySelectorAll('span[data]');
       for(let i = 0; i < x.length; i++) {
-        let dt = x[i].data;
+        let dt = x[i].getAttribute("data");
         if(dt in arr) arr[dt]++;
         else arr[dt] = 1;
       }
