@@ -541,7 +541,13 @@
         if(dt in arr) arr[dt]++;
         else arr[dt] = 1;
       }
-      console.log(arr);
+      
+      document.getElementById("personList").innerHTML = "";
+      
+      for (var k in arr) {
+        document.getElementById("personList").innerHTML += "<div>" + arr[k] + "</div>";
+      }
+      
     }
     
     /*
