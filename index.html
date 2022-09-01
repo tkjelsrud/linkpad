@@ -418,9 +418,9 @@
       if(!targetId)
         targetId = event.target.parent.id;
       
-      alert('stuff was dragged to new location: ' + dragged.id + " -> " + event.target.id);
+      alert('stuff was dragged to new location: ' + dragged.id + " -> " + targetId);
       if (event.target.className === "note") {
-        alert('note was dragged to new location: ' + dragged.id);
+        alert('note was dragged to new location: ' + targetId);
         //dragged.parentNode.removeChild(dragged);
         //event.target.appendChild(dragged);
       }
