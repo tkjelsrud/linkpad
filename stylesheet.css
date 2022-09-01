@@ -50,6 +50,8 @@
   background-color: #9a8194;
   margin: 2px;
   padding: 4px;
+  display: none;
+  visibility: false;
 }
 #personList {
   float: left;
