@@ -412,7 +412,12 @@
     document.addEventListener("drop", (event) => {
       // prevent default action (open as link for some elements)
       event.preventDefault();
+      let targetId = event.target.id;
       // move dragged element to the selected drop target
+      
+      if(!targetId)
+        targetId = event.target.parent.id;
+      
       alert('stuff was dragged to new location: ' + dragged.id + " -> " + event.target.id);
       if (event.target.className === "note") {
         alert('note was dragged to new location: ' + dragged.id);
