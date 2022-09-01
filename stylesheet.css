@@ -128,11 +128,11 @@
   height: auto;
 }
 .note .title {
-  padding: 2px;
+  padding: 4px;
   filter: none;
   width: 100%;
   font-family: Verdana;
-  font-size: 10px;
+  font-size: 11px;
 }
 .note .tags {
   float: left;
