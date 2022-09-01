@@ -419,7 +419,7 @@
         let targetId = event.target.id;
         // move dragged element to the selected drop target
 
-        if(!targetId)
+        if(!targetId && event.target.parent)
           targetId = event.target.parent.id;
 
         alert('stuff was dragged to new location: ' + dragged.id + " -> " + targetId);
