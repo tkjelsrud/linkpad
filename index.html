@@ -145,9 +145,7 @@
       
       if(b) {
         glob.boxes = JSON.parse(b);
-        //
-        // TODO: sort/display based on sorting order
-		//
+        
         for(var i = 0; i < glob.boxes.length; i++) {
           boxToDom(glob.boxes[i]);
         }
@@ -202,6 +200,16 @@
       //
       // TODO: sort/display based on sorting order
       //
+      var items = Object.keys(glob.notes).map(
+  		(key) => { return [key, glob.notes[key]] });
+      
+      items.sort(
+        (a, b) => { return a.order - b.order }
+      );
+      
+      var keys = items.map((e) => { return e[0] });
+
+      console.log(keys);
       for(let id in glob.notes) {
         n = glob.notes[id];
         noteToDom(n);
