@@ -30,7 +30,7 @@
       div.id = jsn.id;
       div.className = 'note' + (jsn.styles? " " + jsn.styles: "");
       div.draggable = true;
-      div.ondrop = function(){alert('drop');};
+      div.addEventListener("drop", function(){alert('test')};);
       div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\" ondblclick=\"toggleMinNote(" + jsn.id + ")\">" + formatTextToDom(jsn.text) + "</div><div class=\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class=\"attributes\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">"  + attrListDom(jsn.attr) + "</div><div class=\"date\" title=\"id:" + jsn.id + " updated:" + jsn.updated + "\"> <span style=\"cursor:pointer;\" onclick=\"archiveNote(" + jsn.id + ")\">&DownTeeArrow;</span> <span style=\"cursor:pointer;\" onclick=\"trashNote(" + jsn.id + ")\">&otimes;</span> " + jsn.created + "</div>";
       
       let n = document.getElementById("noteList");
