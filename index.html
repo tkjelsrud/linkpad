@@ -413,8 +413,9 @@
       // prevent default action (open as link for some elements)
       event.preventDefault();
       // move dragged element to the selected drop target
+      alert('stuff was dragged to new location: ' + dragged.id + " " + event.id);
       if (event.target.className === "note") {
-        alert('stuff was dragged to new location: ' + dragged.id);
+        alert('note was dragged to new location: ' + dragged.id);
         //dragged.parentNode.removeChild(dragged);
         //event.target.appendChild(dragged);
       }
