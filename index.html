@@ -438,13 +438,12 @@
 
         if(!targetId && event.target.parentElement)
           targetId = event.target.parentElement.id;
+        
+        if(glob.notes[targetId] && glob.notes[dragged.id]) {
+          glob.notes[dragged.id].order = glob.notes[targetId].order + 1;
+        }
 
         alert('stuff was dragged to new location: ' + dragged.id + " -> " + targetId);
-        if (event.target.className === "note") {
-          alert('note was dragged to new location: ' + targetId);
-          //dragged.parentNode.removeChild(dragged);
-          //event.target.appendChild(dragged);
-        }
       }
     });
 
