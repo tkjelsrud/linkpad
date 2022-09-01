@@ -441,6 +441,7 @@
         
         if(glob.notes[targetId] && glob.notes[dragged.id]) {
           glob.notes[dragged.id].order = glob.notes[targetId].order + 1;
+          saveDomNote(dragged.id);
         }
 
         alert('stuff was dragged to new location: ' + dragged.id + " -> " + targetId);
