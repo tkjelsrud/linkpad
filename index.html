@@ -30,7 +30,7 @@
       div.id = jsn.id;
       div.className = 'note' + (jsn.styles? " " + jsn.styles: "");
       div.draggable = true;
-      div.addEventListener("drop", function() {alert('test');});
+      //div.addEventListener("drop", function() {alert('test');});
       div.innerHTML = "<div class=\"title\" label=\"" + jsn.id + "\"  contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\" ondblclick=\"toggleMinNote(" + jsn.id + ")\">" + formatTextToDom(jsn.text) + "</div><div class=\"tags\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">" + tagListDom(jsn.tags) + "</div><div class=\"attributes\" contenteditable=\"true\" onblur=\"saveDomNote(" + jsn.id + ")\">"  + attrListDom(jsn.attr) + "</div><div class=\"date\" title=\"id:" + jsn.id + " updated:" + jsn.updated + "\"> <span style=\"cursor:pointer;\" onclick=\"archiveNote(" + jsn.id + ")\">&DownTeeArrow;</span> <span style=\"cursor:pointer;\" onclick=\"trashNote(" + jsn.id + ")\">&otimes;</span> " + jsn.created + "</div>";
       
       let n = document.getElementById("noteList");
@@ -396,6 +396,29 @@
     showPeopleTags();
     
     document.getElementById("byteSize").innerHTML = "Data size " + glob.bytes + "b <br/>Load time " + glob.ms + "ms";
+    
+    let dragged = null;
+
+    document.addEventListener("dragstart", (event) => {
+      // store a ref. on the dragged elem
+      dragged = event.target;
+    });
+
+    document.addEventListener("dragover", (event) => {
+      // prevent default to allow drop
+      event.preventDefault();
+    });
+
+    document.addEventListener("drop", (event) => {
+      // prevent default action (open as link for some elements)
+      event.preventDefault();
+      // move dragged element to the selected drop target
+      if (event.target.className === "note") {
+        alert('stuff was dragged to new location: ' + dragged.id);
+        //dragged.parentNode.removeChild(dragged);
+        //event.target.appendChild(dragged);
+      }
+    });
 
     //dragElement(document.getElementById("b1"));
     //dragElement(document.getElementById("b2"));
