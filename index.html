@@ -48,7 +48,9 @@
       str = str.replaceAll(/^(TODO|&#9634;|▢) (.+)\n/gm, "<span class=\"todo\">&#9634; $2</span>");
       str = str.replaceAll(/^@([a-zA-Z]+) (.+)\n/gm, "<span style=\"cursor: pointer\" onclick=\"view('$1');\" class=\"person\" data=\"$1\">@$1 $2</span>");
       str = str.replaceAll("\n", "<br/>");
-      //str = str.replaceAll("<br/><br/>", "<br/>");
+      str = str.replaceAll("<br/><br/>", "<br/>");
+      str = str.replaceAll("<br/><br/>", "<br/>");
+      
       str = str.replaceAll(/\s+/g, " ");
       str = str.replaceAll("-->", "&rArr;");
       
